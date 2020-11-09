@@ -1,4 +1,4 @@
-package br.com.devmos.apilivraria.apilivraria;
+package br.com.devmos.apilivraria;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

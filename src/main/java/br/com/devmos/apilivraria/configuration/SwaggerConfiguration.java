@@ -1,4 +1,4 @@
-package br.com.devmos.apilivraria.apilivraria.configuration;
+package br.com.devmos.apilivraria.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +18,7 @@ public class SwaggerConfiguration {
 
 	@Bean
 	public Docket api() {
-		Predicate<RequestHandler> basePackage = RequestHandlerSelectors.basePackage("br.com.mosdev.apilivraria");
+		Predicate<RequestHandler> basePackage = RequestHandlerSelectors.basePackage("br.com.devmos.apilivraria");
 		Predicate<String> apiUrl = PathSelectors.ant("/api/**");
 		return new Docket(DocumentationType.SWAGGER_2).select().apis(basePackage).paths(apiUrl).build();
 	}
