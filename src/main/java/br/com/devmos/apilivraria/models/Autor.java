@@ -86,4 +86,10 @@ public class Autor {
 		this.instanteCriacao = instanteCriacao;
 	}
 
+	@Override
+	public String toString() {
+		return "Autor [id=" + id + ", nome=" + nome + ", email=" + email + ", descricao=" + descricao
+				+ ", instanteCriacao=" + instanteCriacao + "]";
+	}
+	
 }
