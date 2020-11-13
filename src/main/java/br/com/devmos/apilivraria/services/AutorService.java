@@ -41,5 +41,10 @@ public class AutorService {
 	public List<Autor> buscaAutores() {
 		return autorRepository.findAll();
 	}
+	
+	@Transactional
+	public void deletarAutor(Autor autor) {
+		manager.remove(autor);
+	}
 
 }
