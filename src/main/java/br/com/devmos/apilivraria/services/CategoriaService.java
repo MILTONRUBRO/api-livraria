@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import br.com.devmos.apilivraria.errors.ResourceNotFoundException;
 import br.com.devmos.apilivraria.models.Categoria;
 
 @Service
@@ -17,6 +18,15 @@ public class CategoriaService {
 	@Transactional
 	public Categoria salvar(Categoria categoria) {
 		entityManager.persist(categoria);
+		return categoria;
+	}
+	
+	public Categoria buscarCategoria(Long id) {
+		Categoria categoria = entityManager.find(Categoria.class, id);
+		
+		if(categoria == null) {
+			throw new ResourceNotFoundException();
+		}
 		return categoria;
 	}
 
