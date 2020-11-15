@@ -1,1 +1,12 @@
-# api-livraria
+# Api-livraria
+
+Api-livraria é uma API desenvolvida com java utilizando SrpingBoot e Swagger.
+
+## Uso
+```
+Rodar o projeto na sua IDE de preferencia e acesse o endereço:
+http://localhost:8080/swagger-ui.html#/
+```
+
+## Contribuições
+Pull requests são bem-vindas. Para mudanças importantes, abra um problema primeiro para discutir o que você gostaria de mudar.
