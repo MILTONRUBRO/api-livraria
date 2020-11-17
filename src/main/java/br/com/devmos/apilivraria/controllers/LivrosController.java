@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +40,12 @@ public class LivrosController {
 	@GetMapping("api/livros")
 	public ResponseEntity<List<LivroDTO>> getLivros(){
 		return ResponseEntity.ok(livroService.listarLivros());
+	}
+	
+	@GetMapping("api/livros/{idLivro}")
+	public ResponseEntity<Livro> getLivro(@PathVariable("idLivro") Long id){
+		Livro livro = livroService.buscarLivro(id);
+		return ResponseEntity.ok(livro);
 	}
 
 }
