@@ -44,4 +44,13 @@ public class LivroService {
 		return possivelLivro.get();
 	}
 
+	public Livro buscarLivroPorTitulo(String titulo) {
+		Optional<Livro> possivelLivro = livroRepository.findByTitulo(titulo);
+		
+		if(!possivelLivro.isPresent()) {
+			throw new ResourceNotFoundException();
+		}
+		return possivelLivro.get();
+	}
+
 }

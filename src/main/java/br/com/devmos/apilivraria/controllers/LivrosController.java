@@ -47,5 +47,11 @@ public class LivrosController {
 		Livro livro = livroService.buscarLivro(id);
 		return ResponseEntity.ok(livro);
 	}
+	
+	@GetMapping("api/livros/dados/{titulo}")
+	public ResponseEntity<Livro> getLivroPorTitulo(@PathVariable("titulo") String titulo){
+		Livro livro = livroService.buscarLivroPorTitulo(titulo);
+		return ResponseEntity.ok(livro);
+	}
 
 }
