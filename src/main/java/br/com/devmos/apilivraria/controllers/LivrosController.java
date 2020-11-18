@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,6 +53,14 @@ public class LivrosController {
 	public ResponseEntity<Livro> getLivroPorTitulo(@PathVariable("titulo") String titulo){
 		Livro livro = livroService.buscarLivroPorTitulo(titulo);
 		return ResponseEntity.ok(livro);
+	}
+	
+	@DeleteMapping("api/livros/{idLivro}")
+	public void deletLivro(@PathVariable("idLivro") Long id) {
+		Livro livro = livroService.buscarLivro(id);
+		
+		livroService.deletar(livro);
+		
 	}
 
 }

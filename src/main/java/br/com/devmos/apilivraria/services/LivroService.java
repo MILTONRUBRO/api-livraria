@@ -53,4 +53,10 @@ public class LivroService {
 		return possivelLivro.get();
 	}
 
+	@Transactional
+	public void deletar(Livro livro) {
+		entityManager.remove(livro);
+		
+	}
+
 }
