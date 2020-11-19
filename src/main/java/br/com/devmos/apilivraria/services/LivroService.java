@@ -58,5 +58,14 @@ public class LivroService {
 		entityManager.remove(livro);
 		
 	}
+	
+	@Transactional
+	public LivroDTO atualizarLivro(Livro livro, Long id) {
+		
+		livro.setId(id);
+		livroRepository.save(livro);
+		
+		return new LivroDTO(livro);
+	}
 
 }

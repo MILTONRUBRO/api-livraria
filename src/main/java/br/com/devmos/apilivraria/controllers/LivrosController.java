@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -60,6 +61,16 @@ public class LivrosController {
 		Livro livro = livroService.buscarLivro(id);
 		
 		livroService.deletar(livro);
+		
+	}
+	
+	@PutMapping("api/livros/{idLivro}")
+	public ResponseEntity<LivroDTO> updateLivro(@PathVariable("idLivro") Long id, @RequestBody @Valid LivroRequest request) {
+		Livro livro = livroService.buscarLivro(id);
+		
+		livro = request.toModel(autorService, categoriaService);
+		
+		return ResponseEntity.ok(livroService.atualizarLivro(livro, id));
 		
 	}
 
