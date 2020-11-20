@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.devmos.apilivraria.models.Livro;
 import br.com.devmos.apilivraria.models.LivroDTO;
 import br.com.devmos.apilivraria.models.LivroRequest;
+import br.com.devmos.apilivraria.models.LivrosResumidos;
 import br.com.devmos.apilivraria.services.AutorService;
 import br.com.devmos.apilivraria.services.CategoriaService;
 import br.com.devmos.apilivraria.services.LivroService;
@@ -72,6 +73,11 @@ public class LivrosController {
 		
 		return ResponseEntity.ok(livroService.atualizarLivro(livro, id));
 		
+	}
+	
+	@GetMapping("api/livros/resumo")
+	public ResponseEntity<List<LivrosResumidos>> getLivrosCadastrados(){
+		return ResponseEntity.ok(livroService.listarResumoLivros());
 	}
 
 }

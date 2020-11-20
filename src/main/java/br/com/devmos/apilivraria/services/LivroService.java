@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import br.com.devmos.apilivraria.errors.ResourceNotFoundException;
 import br.com.devmos.apilivraria.models.Livro;
 import br.com.devmos.apilivraria.models.LivroDTO;
+import br.com.devmos.apilivraria.models.LivrosResumidos;
 import br.com.devmos.apilivraria.repositories.LivroRepository;
 
 @Service
@@ -66,6 +67,11 @@ public class LivroService {
 		livroRepository.save(livro);
 		
 		return new LivroDTO(livro);
+	}
+
+	public List<LivrosResumidos> listarResumoLivros() {
+		List<Livro> livros = livroRepository.findAll();
+		return LivrosResumidos.converter(livros);
 	}
 
 }
