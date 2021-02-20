@@ -1,6 +1,6 @@
 # Api-livraria
 
-Api-livraria é uma API desenvolvida com java utilizando SrpingBoot e Swagger.
+Api-livraria é uma API desenvolvida com java utilizando SpringBoot e Swagger.
 
 ## Uso
 ```
